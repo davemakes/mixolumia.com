@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/main.css?version=20220906">
+
+  <title>Mixolumia - Postmortem</title>
+  <meta name="keywords" content="Mixolumia, game, puzzle, arcade">
+  <meta name="description" content="Mixolumia is an entrancing musical puzzle game.">
+  <meta name="author" content="davemakes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:url" content="http://www.mixolumia.com">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mixolumia">
+  <meta property="og:description" content="Mixolumia is an entrancing musical puzzle game.">
+  <meta property="og:image" content="https://www.mixolumia.com/images/twitter-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@davemakes">
+  <meta name="twitter:title" content="Mixolumia">
+  <meta name="twitter:description" content="Entrancing musical puzzle game.">
+  <meta name="twitter:image" content="https://www.mixolumia.com/images/twitter-card.png">
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Mixolumia" /></head>
+<body class="light-bg | dark-text"><header class="site-header" role="banner"><a class="site-title" rel="author" href="/">Mixolumia</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="https://davemakes.itch.io/mixolumia" target="_blank">Itch.io</a>
+          <a class="page-link" href="https://store.steampowered.com/app/1414020/Mixolumia/" target="_blank">Steam</a>
+          <a class="page-link" href="https://moonglass.games/l/?s=mixolumia&l=eshop" target="_blank">Switch</a>
+          <a class="page-link" href="https://davemakes.bandcamp.com/album/mixolumia-ep" target="_blank">OST</a><a class="page-link" href="/community/">Community</a><a class="page-link" href="/colors/">Colors</a><a class="page-link" href="/soundpacks/">Soundpacks</a><a class="page-link" href="/makingmusic/">Making Music</a></div>
+      </nav></header>
+<main class="page-content" aria-label="Content">
+	  	<div class="wrapper">
+	  		<article class="post">
+
+  <div class="post-content">
+    <p><a href="/images/postmortem/mixolumia_stats.png" target="_blank"><img src="/images/postmortem/mixolumia_stats.png" alt="Mixolumia board with sales stats instead of scores. Steam units: 713. Revenue: 6,202. Itch units: 1776. Revenue: 17,906" /></a></p>
+
+<h1 id="mixolumia-postmortem">Mixolumia Postmortem</h1>
+
+<h3 id="intro">Intro</h3>
+<p>On January 29, 2019 I posted <a href="https://twitter.com/davemakes/status/1090077970968936448" target="_blank">the first gif</a> of an idea for a falling-block puzzle game. On August 8, 2020 we released <a href="https://davemakes.itch.io/mixolumia" target="_blank">Mixolumia on Itch</a>, and when it did unexpectedly well, we took it to <a href="https://store.steampowered.com/app/1414020/Mixolumia/" target="_blank">Steam</a> on November 30. I’ve been meaning to write some kind of post-mortem for months, but there’s a pandemic, gimme a break.</p>
+
+<p>So! The juicy financials, the thing everybody wants to know. These numbers are either really amazing considering this was a weird, niche little game by a relatively unknown indie, or really dire considering the math doesn’t add up to a living wage. But here they are. I’m writing this on June 22, 2021, a little over ten months after launch.</p>
+
+<p><br /></p>
+
+<h3 id="sales-numbers">Sales numbers</h3>
+<p>On Itch, we’ve sold <strong>1,776 units</strong> with a gross revenue of <strong>$17,906</strong>. On Steam, we’ve sold <strong>713 units</strong> with a gross revenue of <strong>$6,202</strong>. This makes a total of <strong>2,489 units</strong> and <strong>$24,108</strong> gross revenue. Keep in mind, this is before platform fees and taxes, which take a significant bite, not to mention development costs.</p>
+
+<p><strong>UPDATE:</strong> Money from Steam for the month just came in, so I’ll share net revenue now as well. This is the money after chargebacks, VAT/sales tax, payment processor fees, and platform fees. Basically, it’s what ends up in my bank account. From Itch, we’ve got <strong>$14,980</strong>, and from Steam, <strong>$3,680</strong> for a total of <strong>$18,660</strong>. This lags a bit behind actual sales as things are processed, but the ratios are still interesting. It’s wild to consider that Itch has outsold Steam over 2:1, and somehow the profits are 4:1.</p>
+
+<p><strong>UPDATE 2:</strong> I dug into how much money I’m losing to VAT and why it seems to affect Steam sales more than Itch sales, and I found the answer to be very interesting. VAT is a consumption tax in a lot of places around the world, very commonly in Europe, usually around 20%. On Itch, VAT is <strong>exclusive</strong>, meaning it’s added on to the game’s price at checkout. On Steam, however, VAT is <strong>inclusive</strong>, so that 20% comes out of my end. When you set the price of your game in USD ($9.99), Steam has a system that recommends prices for other currencies, but what I didn’t realize is that it <em>doesn’t</em> take VAT into account, even though <a href="https://partner.steamgames.com/doc/finance/taxfaq#CurrentRates" target="_blank">they know dang well</a> what it will be. For example, Mixolumia costs £7.19 on Steam (about $9.94 USD currently) per Steam’s recommendation, but since it’s VAT inclusive, that’s essentially a <em>permanent discount</em> compared to the Itch price for people in the UK. On an Itch sale to a person in the EU, they pay $12, VAT takes $2, Itch takes 10%, and I get about <strong>$9</strong>. On Steam, they pay $10, VAT takes $2, Steam takes 30%, and I get around <strong>$5.60</strong>. This is definitely something I will be keeping in mind in the future.</p>
+
+<p><a href="/images/postmortem/itch_stats.png" target="_blank"><img src="/images/postmortem/itch_stats.png" alt="Itch stats. $17,906.96 Gross Revenue. 1,776 Payments. 44.2k Views. 11.3k Downloads. 139 Ratings. 2,019 Collections. 15.5k 7 day impressions. 0.56% CTR." /></a></p>
+
+<p><a href="/images/postmortem/itch_sales_data.png" target="_blank"><img src="/images/postmortem/itch_sales_data.png" alt="Itch sales data. Launch sale, 10% off, 996 units, $10,069.27. Halloween Sale 2020, 10% off, 37 units, $363. Winter Sale 2020, 10% off, 39 units, $377. Lunar New Year 2021, 10% off, 24 units, $226. Spring Sale 2021, 25% off, 40 units, $336. Creator Day Sale 2021, 25% off, 121 units, $967." /></a></p>
+
+<p><a href="/images/postmortem/itch_graphs.png" target="_blank"><img src="/images/postmortem/itch_graphs.png" alt="Itch sales graphs. Big spike at the start, tapers off quickly. Big download spike towards the end in June." /></a></p>
+
+<p>(that big download spike towards the end is from the Palestinian aid bundle)</p>
+
+<p><a href="/images/postmortem/steam_stats.png" target="_blank"><img src="/images/postmortem/steam_stats.png" alt="Steam stats. Total Revenue, $6,202. Steam Units, 713. Retail activations, 707. Wishlists, 1,998." /></a></p>
+
+<p><a href="/images/postmortem/steam_graph.png" target="_blank"><img src="/images/postmortem/steam_graph.png" alt="Steam sales graphs. Not too big of a spike, but some decent bumps after the fact." /></a></p>
+
+<p>Steam was originally a huge disappointment, but the baseline sales numbers there are slightly higher than on Itch, so they might catch up someday. We’ll see. I hear from a lot of developers who don’t take Itch seriously, so I think our numbers make for an interesting case study. If I do something like this again, I might launch on both platforms simultaneously, but I would never <em>not</em> launch on Itch.</p>
+
+<p><br /></p>
+
+<h3 id="the-first-week">The first week</h3>
+<p>We pulled in around $10k gross revenue during launch week, which was startling since the game had been available in early access through <a href="https://www.patreon.com/davemakes" target="_blank">Patreon</a> for over a year before launch, and I sincerely thought maybe a dozen people who didn’t already know about it would buy it. We were the top-selling game on Itch for a full seven days. The development thread got a surprising amount of attention on sites like <a href="https://www.rockpapershotgun.com/track-this-rhythm-puzzlers-development-from-beginning-to-end-via-twitter" target="_blank">Rock Paper Shotgun</a> and <a href="https://www.theverge.com/tldr/2020/8/13/21366173/indie-rhythm-puzzle-game-mixolumia-twitter-thread-davemakes" target="_blank">the Verge</a>, and went semi-viral. It was a little weird for me seeing my tweets get coverage while <a href="https://www.pcgamer.com/mixolumia-is-a-ridiculously-addictive-new-block-puzzler/" target="_blank">reviews</a> of the game on major sites were rare, but honestly since Twitter is my primary platform for marketing, I appreciated the sudden influx of followers. My notifications were a firehose for about two weeks following launch, and my brain turned into mush as I kept waking up at two in the morning to check sales numbers, see if we’d hit any big news sites, and scroll through pages of Twitter mentions. It was a really weird experience, I don’t think human brains are built for that much dopamine.</p>
+
+<p><br /></p>
+
+<h3 id="steam">Steam</h3>
+<p>People started clamoring for a Steam release, and since it’s common knowledge that’s where the <em>real</em> money is (lol), I began work fixing bugs, polishing features, and adding all the important Steam stuff like cloud saves, achievements, and online leaderboards. The biggest thing I tackled during this time period was control remapping, which turned out to be essential for international keyboards, a thing I didn’t even think would be a consideration for someone with my limited reach. There were a lot of parts that feature touched, and getting it working was… a pain. But finishing it was a big win for accessibility.</p>
+
+<p>During this time, Game Maker Studio 2 introduced a major, irreversible update that appeared to function well when I tested it, so I went ahead and moved forward with the new version. <strong>Never do this.</strong> It turned out later that there was a major bug preventing builds for Steam on Mac. I didn’t want to delay the Steam release waiting for a fix from the folks who make the engine, so I went ahead without the Mac version. I’ll be honest, this sucked. Mac users tend to like puzzle games, and they’re not an insignificant portion of our audience on Itch (about 18% of downloads).</p>
+
+<p>After launch, I found out there was a bug with the garbage collector in this version of the engine that caused completely random, fairly rare crashes with no indication as to what was causing it. We were hit with some refunds because of this. Once I figured out the issue wasn’t my code, I did some engine nonsense to get it fixed. That wasn’t fun.</p>
+
+<p>Despite all this, I still really like GMS2 as an engine. Sort of. Ok, I’m a little salty. But it’s still fun and fast to work in.</p>
+
+<p>I tried not to get my hopes up for Steam. I knew that we’d either hit it big, or more likely we’d go mostly unnoticed. Our first week, we sold <strong>107</strong> Steam units for a gross revenue of <strong>$991</strong>. Considering that Valve takes 30% of that (Itch only takes a suggested 10%), not to mention taxes, and yeah. It was… not what I’d hoped. My inbox was flooded with shady requests for free keys. The game started showing up on torrent sites for the first time (It’s funny, I’ve talked to devs who are <em>very</em> concerned about piracy from Itch because it’s DRM-free, but in my experience, people there are more likely to tip you than rip you off). I was uncertain if the time investment in Steam had even been worth it. We had also recently released the <a href="https://davemakes.bandcamp.com/album/mixolumia-ep" target="_blank">soundtrack to the game on Bandcamp</a>, which didn’t sell very well, and all of that combined with the engine bugs and being stuck inside during the increasingly bleak pandemic led to a pretty terrible depression.</p>
+
+<p><br /></p>
+
+<h3 id="post-launch-depression">Post-launch depression</h3>
+<p>Post-launch depression is a common thing. I’ve experienced it before, but I managed to delay it with Mixolumia, maybe because I just kept working on the thing after launch. A really amazing community grew around the game, making <a href="https://itch.io/c/1110361/mixolumia-soundpacks" target="_blank">soundpacks</a>, making color palettes, speedrunning, competing for high scores, discussing strategies, and making memes. They really helped keep me going in the months following release, but eventually it came time to think about what I should do next. And considering the amount of time, effort, and money that went into this versus the money I wound up making, I was (and still am) uncertain as to what idea I should chase for the next game. I’ve never been short on ideas, but it’s intimidating staring down the barrel of any significant project alone now that I’ve seen the whole process. So I’ve been doing contract work to continue to live again, and applying to jobs here and there, but haven’t yet hit on an idea I feel confident about committing to full-time.</p>
+
+<p><br /></p>
+
+<h3 id="lessons-learned">Lessons learned</h3>
+<p>I’ve thought a lot about what sells a game, and what led to Mixolumia having such a surprising launch, but not a bigger one. Word-of-mouth is the most powerful force in marketing, but it seems like an impossibly slippery thing to make happen unless you’re some kind of advertising genius (I am not). When designing a game, obviously you want to make it <strong>fun to play</strong>. A slightly less obvious thing is that it should also <strong>LOOK fun</strong>. You could make an incredibly satisfying game, but if it looks boring, it won’t draw people in to play it in the first place. Of course, you can also make a game that looks great in GIFs and has utterly rote gameplay, which will probably sell better but wow that sounds like a drag to work on.</p>
+
+<p>The thing I learned after making Mixolumia is that, in addition to the previous two goals, it’s a good idea to make a game that’s <strong>fun to talk about</strong>. Mixolumia is a game that feels good, that has unique mechanics, and shiny visuals and audio, but there’s no story, no world, no characters, no progression beyond high scores and your own sense of satisfaction and personal achievement. I love this kind of game, and I’m happy with my take on it, but it doesn’t give people a lot to talk about. The reason most of the coverage of Mixolumia was about the Twitter development thread is because that made for an interesting story. But tune into a podcast about the game and it’s over in a couple of minutes because what is there to say? It feels good to drop the blocks, I played more and got better at dropping the blocks. The music is nice, someone made a silly soundpack out of that <a href="https://twitter.com/mothbeanie/status/1295592548384161797" target="_blank">Disturbed</a> song. Now let’s talk about Destiny 2 again for 15 minutes.</p>
+
+<p>Not to mention this genre is death for Twitch streams. I don’t know what it is, but arcade puzzlers shut down whatever part of your brain is in charge of speech. You’re either competitive enough that raw gameplay is exciting to watch for people who understand what’s going on, or you just chill out in relaxed mode and chat, which is nice, but the game itself isn’t really helping you as a streamer to make interesting content the way a story-based, multiplayer, or sandbox game might.</p>
+
+<p>None of that means it’s a bad game, but it doesn’t create a lot of content for conversation, and that’s a limiting factor in its marketability. You can’t get word-of-mouth if there’s nothing to word-of-mouth about. I feel like a lot of game design discussion focuses on pure mechanical novelty (game jam culture is full of this), and it’s started to feel like <strong>designing for designers</strong> to me.</p>
+
+<p>I’m absolutely one of those people who will love something for a special mechanical twist, but there are so many directions to run in the possibility space of games as a medium that it’s honestly silly to discount the power of aesthetics, character, narrative, lore, etc. Of course, this kind of stuff can be dangerous if you’re looking out for scope creep, but I’m convinced a good pitch and some light theming can go a long way. I think about narrative-heavy games like <a href="https://hthr.itch.io/extreme-meatpunks-forever" target="_blank">EXTREME MEATPUNKS FOREVER</a>, or <a href="https://store.steampowered.com/app/1246250/An_Airport_for_Aliens_Currently_Run_by_Dogs/" target="_blank">An Airport For Aliens Currently Run By Dogs</a>, where the pitch is so strong that you can say just the title aloud and people go, “Excuse me?? Tell me more????” No GIFs required. Or, looking at something in the arcade puzzler genre, the gorgeous <a href="https://store.steampowered.com/app/1592170/Spirit_Swap_Lofi_Beats_to_Match3_To/" target="_blank">Spirit Swap</a>, which raised $150k (!!!) on <a href="https://www.kickstarter.com/projects/softnotweak/spirit-swap" target="_blank">Kickstarter</a> with some <a href="https://www.youtube.com/watch?v=eXRUuDSLi3o" target="_blank">familiar</a> mechanics and some fresh <a href="https://twitter.com/SoftNotWeak/status/1378056565857546240?s=20" target="_blank">ideas</a>, but also a whole Hades-like narrative structure (plus excellent art and vibes) elevating the concept. Then there’s something like <a href="https://grindstonegame.com/" target="_blank">Grindstone</a>, which is very much a unique mechanics-driven puzzle game, but theming it as slashing your way through monsters gives it a juicy depth that would be missing if it were just about blocks.</p>
+
+<p>In conclusion, it turns out most people aren’t as enthralled with abstract geometry as I am, so strong theming is something I’ll have to keep in mind if I want to make this whole game development business more sustainable in the future.</p>
+
+<p><br /></p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>Anyway, if nothing else, I’m happy to have made this game. I get incredible joy being able to split money from this thing with my talented collaborators, <a href="https://www.josiebrechner.com/" target="_blank">Josie Brechner</a> and <a href="http://perennialsounds.com/" target="_blank">Jasmine Cooper</a>. I’m proud to use my work to help raise funds for things like the Palestinian aid bundle. I smile every time someone sends me a new color palette, or high score, or just a nice thought about how dropping the blocks feels good, and they’re getting better at dropping the blocks.</p>
+
+<p>I hope that sharing this financial info and insight is helpful to other indies as they decide what risks they should take and how to find their game’s audience. And also I hope that this is such a compelling read that it goes totally viral, and that people see Mixolumia is currently 40% off on <a href="https://store.steampowered.com/app/1414020/Mixolumia/" target="_blank">Steam</a> and <a href="https://davemakes.itch.io/mixolumia" target="_blank">Itch</a> and they buy a million copies HAHA what a shrewd business person I am! I got you! Can’t wait to buy a castle and, I don’t know, a silver autogyro or something, you suckers! No but really, huge thanks to everyone who has helped support me so I didn’t wind up dead in a ditch. I hope we get to do this again sometime.</p>
+
+<p>Dave</p>
+
+  </div>
+
+</article>
+
+		</div>
+	</main><footer class="site-footer h-card dark-bg light-text">
+  <data class="u-url" href="/"></data>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1"><ul class="social-media-list"><li><a href="https://www.twitter.com/davemakes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">davemakes</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-2">
+      
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="no-bullet">
+          <li><a href="https://davemakes.itch.io/mixolumia" target="_blank">Itch.io</a></li>
+          <li><a href="https://store.steampowered.com/app/1414020/Mixolumia/" target="_blank">Steam</a></li>
+          <li><a href="https://moonglass.games/l/?s=mixolumia&l=eshop" target="_blank">Nintendo Switch</a></li>
+          <li><a href="https://davemakes.bandcamp.com/album/mixolumia-ep" target="_blank">OST</a></li><li><a href="/community/">Community</a></li><li><a href="/colors/">Colors</a></li><li><a href="/soundpacks/">Soundpacks</a></li><li><a href="/makingmusic/">Making Music</a></li><li><a href="/press">Press Kit</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+</footer>
+</body>
+</html>

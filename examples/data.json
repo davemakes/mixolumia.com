@@ -1,0 +1,245 @@
+{
+    "info": {
+        "title": "Soundpack Title",
+        "author": "Author Name"
+    },
+    "gain": {
+    	"master": 1,
+    	"drop": 1,
+    	"move": 1,
+    	"clear": 1,
+    	"combo": 1,
+    	"loop": 1
+    },
+    "drop_groups": {
+        "drop": "drop.ogg",
+        "drop_b": "drop_big.ogg"
+    },
+    "move_groups": {
+        "C": [
+            "move_C_0.ogg",
+            "move_C_2.ogg",
+            "move_C_1.ogg",
+            "move_C_3.ogg",
+            "move_C_1.ogg",
+            "move_C_3.ogg",
+            "move_C_2.ogg",
+            "move_C_4.ogg",
+            "move_C_0.ogg",
+            "move_C_2.ogg",
+            "move_C_1.ogg",
+            "move_C_3.ogg",
+            "move_C_1.ogg",
+            "move_C_3.ogg",
+            "move_C_2.ogg",
+            "move_C_5.ogg"
+        ],
+        "F": [
+            "move_F_0.ogg",
+            "move_F_2.ogg",
+            "move_F_1.ogg",
+            "move_F_3.ogg",
+            "move_F_1.ogg",
+            "move_F_3.ogg",
+            "move_F_2.ogg",
+            "move_F_4.ogg"
+        ]
+    },
+    "clear_groups": {
+        "C0": [
+            "clear_C0_0.ogg",
+            "clear_C0_1.ogg",
+            "clear_C0_2.ogg"
+        ],
+        "C1": [
+            "clear_C1_0.ogg",
+            "clear_C1_1.ogg",
+            "clear_C1_2.ogg"
+        ],
+        "F0": [
+            "clear_F0_0.ogg",
+            "clear_F0_1.ogg",
+            "clear_F0_2.ogg"
+        ],
+        "F1": [
+            "clear_F1_0.ogg",
+            "clear_F1_1.ogg",
+            "clear_F1_2.ogg"
+        ],
+
+
+        "C0_echo": [
+            "clear_C0_0_echo.ogg",
+            "clear_C0_1_echo.ogg",
+            "clear_C0_2_echo.ogg"
+        ],
+        "C1_echo": [
+            "clear_C1_0_echo.ogg",
+            "clear_C1_1_echo.ogg",
+            "clear_C1_2_echo.ogg"
+        ],
+        "F0_echo": [
+            "clear_F0_0_echo.ogg",
+            "clear_F0_1_echo.ogg",
+            "clear_F0_2_echo.ogg"
+        ],
+        "F1_echo": [
+            "clear_F1_0_echo.ogg",
+            "clear_F1_1_echo.ogg",
+            "clear_F1_2_echo.ogg"
+        ]
+    },
+    "combo_groups": {
+    	"combo_a": [
+    		"combo_0.ogg",
+    		"combo_1.ogg",
+    		"combo_2.ogg",
+    	],
+        "combo_b": [
+            "combo_0.ogg",
+            "combo_1.ogg",
+            "combo_2.ogg",
+        ]
+    },
+    "progressions": {
+        "prog_96": [
+            ["drop", "C", "C0", "combo_a"],
+            ["drop", "C", "C1", "combo_a"],
+            ["drop", "F", "F0", "combo_a"],
+            ["drop", "F", "F1", "combo_a"],
+            ["drop", "C", "C0", "combo_a"],
+            ["drop", "C", "C1", "combo_a"],
+            ["drop", "F", "F0", "combo_a"],
+            ["drop", "F", "F1", "combo_a"],
+            ["drop", "C", "C0", "combo_a"],
+            ["drop", "C", "C1", "combo_a"],
+            ["drop", "F", "F0", "combo_a"],
+            ["drop", "F", "F1", "combo_a"]
+        ],
+        "prog_32": [
+            ["drop", "C", "C0", "combo_a"],
+            ["drop", "C", "C1", "combo_a"],
+            ["drop", "F", "F0", "combo_a"],
+            ["drop", "F", "F1", "combo_a"]
+        ],
+        "prog_16": [
+            ["drop", "C", "C0", "combo_a"],
+            ["drop", "C", "C1", "combo_a"]
+        ],
+        "prog_64": [
+            ["drop", "C", "C0", "combo_a"],
+            ["drop", "C", "C1", "combo_a"],
+            ["drop", "F", "F0", "combo_a"],
+            ["drop", "F", "F1", "combo_a"],
+            ["drop", "C", "C0", "combo_a"],
+            ["drop", "C", "C1", "combo_a"],
+            ["drop", "F", "F0", "combo_a"],
+            ["drop", "F", "F1", "combo_a"]
+        ],
+        "prog_64_echo": [
+            ["drop",    "C", "C0_echo", "combo_b"],
+            ["drop_b",  "C", "C1_echo", "combo_b"],
+            ["drop",    "F", "F0_echo", "combo_b"],
+            ["drop_b",  "F", "F1_echo", "combo_b"],
+            ["drop",    "C", "C0_echo", "combo_b"],
+            ["drop_b",  "C", "C1_echo", "combo_b"],
+            ["drop",    "F", "F0_echo", "combo_b"],
+            ["drop_b",  "F", "F1_echo", "combo_b"]
+        ]
+    },
+    "loops": {
+        "start": {
+            "audio": "start.ogg",
+            "bpm": 140,
+            "length": 96,
+            "progression": "prog_96",
+            "next": "start_loop_0"
+        },
+        "start_loop_0": {
+            "audio": "start_loop_0.ogg",
+            "bpm": 140,
+            "length": 32,
+            "progression": "prog_32",
+            "next": "start_loop_0b"
+        },
+        "start_loop_0b": {
+            "audio": "start_loop_0.ogg",
+            "bpm": 140,
+            "length": 32,
+            "progression": "prog_32",
+            "next": "start_loop_1"
+        },
+        "start_loop_1": {
+            "audio": "start_loop_1.ogg",
+            "bpm": 140,
+            "length": 32,
+            "progression": "prog_32",
+            "next": "start_loop_1"
+        },
+
+
+        "middle": {
+            "audio": "middle.ogg",
+            "bpm": 140,
+            "length": 32,
+            "progression": "prog_32",
+            "next": "middle_loop_0"
+        },
+        "middle_loop_0": {
+            "audio": "middle_loop_0.ogg",
+            "bpm": 140,
+            "length": 32,
+            "progression": "prog_32",
+            "next": "middle_loop_0b"
+        },
+        "middle_loop_0b": {
+            "audio": "middle_loop_0.ogg",
+            "bpm": 140,
+            "length": 32,
+            "progression": "prog_32",
+            "next": "middle_loop_0c"
+        },
+        "middle_loop_0c": {
+            "audio": "middle_loop_0.ogg",
+            "bpm": 140,
+            "length": 32,
+            "progression": "prog_32",
+            "next": "middle_loop_1"
+        },
+        "middle_loop_1": {
+            "audio": "middle_loop_1.ogg",
+            "bpm": 140,
+            "length": 32,
+            "progression": "prog_32",
+            "next": "middle_loop_2"
+        },
+        "middle_loop_2": {
+            "audio": "middle_loop_2.ogg",
+            "bpm": 140,
+            "length": 32,
+            "progression": "prog_32",
+            "next": "middle_loop_2"
+        },
+
+
+        "outro": {
+            "audio": "outro.ogg",
+            "bpm": 140,
+            "length": 64,
+            "progression": "prog_64_echo",
+            "next": "outro_loop_0"
+        },
+        "outro_loop_0": {
+            "audio": "outro_loop_0.ogg",
+            "bpm": 140,
+            "length": 64,
+            "progression": "prog_64_echo",
+            "next": "outro_loop_0"
+        },
+
+
+        "end" :{
+        	"audio": "end.ogg"
+        }
+    }
+}

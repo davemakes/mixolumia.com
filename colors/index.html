@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/main.css?version=20220906">
+
+  <title>Mixolumia - Colors</title>
+  <meta name="keywords" content="Mixolumia, game, puzzle, arcade">
+  <meta name="description" content="Mixolumia is an entrancing musical puzzle game.">
+  <meta name="author" content="davemakes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:url" content="http://www.mixolumia.com">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mixolumia">
+  <meta property="og:description" content="Mixolumia is an entrancing musical puzzle game.">
+  <meta property="og:image" content="https://www.mixolumia.com/images/twitter-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@davemakes">
+  <meta name="twitter:title" content="Mixolumia">
+  <meta name="twitter:description" content="Entrancing musical puzzle game.">
+  <meta name="twitter:image" content="https://www.mixolumia.com/images/twitter-card.png">
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Mixolumia" /></head>
+<body class="dark-bg | gradient-bg | light-text"><header class="site-header" role="banner"><a class="site-title" rel="author" href="/">Mixolumia</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="https://davemakes.itch.io/mixolumia" target="_blank">Itch.io</a>
+          <a class="page-link" href="https://store.steampowered.com/app/1414020/Mixolumia/" target="_blank">Steam</a>
+          <a class="page-link" href="https://moonglass.games/l/?s=mixolumia&l=eshop" target="_blank">Switch</a>
+          <a class="page-link" href="https://davemakes.bandcamp.com/album/mixolumia-ep" target="_blank">OST</a><a class="page-link" href="/community/">Community</a><a class="page-link" href="/colors/">Colors</a><a class="page-link" href="/soundpacks/">Soundpacks</a><a class="page-link" href="/makingmusic/">Making Music</a></div>
+      </nav></header>
+<main class="page-content" aria-label="Content">
+	  	<div class="wrapper">
+	  		<article class="post">
+
+  <div class="post-content">
+    <h1 id="color-palettes">Color Palettes</h1>
+
+<p>Mixolumia allows you to add your own color palettes to the game. Many of these can be found on the <a href="/community/">Discord</a>, or you can make your own using the built-in color editor.</p>
+
+<p>There is also a <a href="https://mixolumia-palette-picker.netlify.app/" target="_blank">handy fan-made web tool</a> for creating Mixolumia palettes.</p>
+
+<p>Alternatively, I made myself a little palette template to edit in <a href="https://www.aseprite.org/" target="blank">Aseprite</a>.</p>
+
+<div class="centered">
+	<img src="/images/mixolumia_palette_template.png" alt="Mixolumia palette template" />
+</div>
+
+<p><br /></p>
+
+<h3 id="adding-palettes">Adding Palettes</h3>
+
+<p>You will need to find and edit the <strong>user palettes file.</strong></p>
+
+<p>Windows:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%LOCALAPPDATA%/Mixolumia/user_palettes.ini
+</code></pre></div></div>
+<p>Mac:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/Library/Application Support/com.davemakes.mixolumia/user_palettes.ini
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>You may need to run Mixolumia once to generate this file.</strong></p>
+</blockquote>
+
+<p><br /></p>
+
+<h3 id="palette-format">Palette Format</h3>
+
+<p>There are six hexadecimal colors in a Mixolumia palette numbered 0 through 5. The format for the .ini file goes like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0]
+name=Example Title
+author=Your Name
+0=000000
+1=1d2b53
+2=fff7f2
+3=ffec27
+4=29adff
+5=ff004d
+
+[1]
+name=Another Example
+author=Another Name
+0=fff1e8
+1=f0d4d3
+2=1d2b53
+3=ffa300
+4=29adff
+5=ff004d
+</code></pre></div></div>
+
+<p>The colors correspond to these game parts:</p>
+<ul>
+  <li>0: Background</li>
+  <li>1: Game Board</li>
+  <li>2: Empty Block and Text</li>
+  <li>3: Filled Block and Selected Text</li>
+  <li>4: Hole Block</li>
+  <li>5: Target Block</li>
+</ul>
+
+<blockquote>
+  <p><strong>Pro Tip:</strong> Colors 0 and 1 should have pretty low contrast with each other or else it will be hard to see the pieces when things get wild.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h3 id="have-fun">Have Fun!</h3>
+
+<p>Many of the color palettes in Mixolumia were created by community members. Post your color palettes in the <a href="https://invite.gg/mixolumia" target="_blank">Discord</a>, and maybe I’ll ask to include them in a future release!</p>
+
+  </div>
+
+</article>
+
+		</div>
+	</main><footer class="site-footer h-card dark-bg light-text">
+  <data class="u-url" href="/"></data>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1"><ul class="social-media-list"><li><a href="https://www.twitter.com/davemakes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">davemakes</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-2">
+      
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="no-bullet">
+          <li><a href="https://davemakes.itch.io/mixolumia" target="_blank">Itch.io</a></li>
+          <li><a href="https://store.steampowered.com/app/1414020/Mixolumia/" target="_blank">Steam</a></li>
+          <li><a href="https://moonglass.games/l/?s=mixolumia&l=eshop" target="_blank">Nintendo Switch</a></li>
+          <li><a href="https://davemakes.bandcamp.com/album/mixolumia-ep" target="_blank">OST</a></li><li><a href="/community/">Community</a></li><li><a href="/colors/">Colors</a></li><li><a href="/soundpacks/">Soundpacks</a></li><li><a href="/makingmusic/">Making Music</a></li><li><a href="/press">Press Kit</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+</footer>
+</body>
+</html>

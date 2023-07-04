@@ -1,0 +1,236 @@
+{
+  "$id": "https://www.mixolumia.com/makingmusic/music-schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mixolumia Dynamic Music",
+  "description": "The music in Mixolumia changes as the player progresses through a game, and the game’s sound effects harmonize with the music being played.",
+  "type": "object",
+
+  "properties": {
+    "drop_groups": {
+      "title": "Drop Groups",
+      "type": "object",
+      "description": "This is the sound that plays when the player’s tetrad lands. I used a deep bass thud in Tessellation and a snap sound in Minimum, but it’s open to your musical inspiration. Right now you can only specify one drop sound per group, but I may change this to function more like move groups in the future.",
+      "additionalProperties": { "$ref": "#/definitions/clipfile" },
+      "minProperties": 1,
+      "maxProperties": 1
+    },
+
+    "move_groups": {
+      "title": "Move Groups",
+      "type": "object",
+      "description": "Move groups define the sounds that will play when the player twists or moves the tetrad. They work kind of like a mini progression within themselves, so you could define a sort of melody or arpeggio as the player plays. You can make this as simple or as complex as you like.",
+      "additionalProperties": {
+        "type": "array",
+        "description": "The movement sounds won’t necessarily play in the order you write them, but will play depending on where in the progression the player happens to trigger a sound while playing. The way this happens is through magic and nonsense and no one should attempt to understand it.",
+        "items": { "$ref": "#/definitions/clipfile" }
+      },
+      "minProperties": 1
+    },
+
+    "clear_groups": {
+      "title": "Clear Groups",
+      "type": "object",
+      "description": "Clear groups define the sounds that will play when the player clears blocks.",
+      "additionalProperties": {
+        "type": "array",
+        "description": "Because we want to give feedback when the player clears a lot of blocks, or if they have a really strong combo going, clear groups are made up of 3 sound files.",
+        "items": { "$ref": "#/definitions/clipfile" },
+        "minItems": 3,
+        "maxItems": 3
+      }
+    },
+
+    "combo_groups": {
+      "title": "Combo Groups",
+      "type": "object",
+      "description": "Combo groups define the sounds that will play when the player starts a chain reaction and gets multiple sets of clears with one drop. When the board has finally settled, a visual effect and sound will be triggered.",
+      "additionalProperties": {
+        "type": "array",
+        "description": "Like clear groups, combo groups are made up of 3 sound files, for small, medium, and big combos.",
+        "items": { "$ref": "#/definitions/clipfile" },
+        "minItems": 3,
+        "maxItems": 3
+      }
+    },
+
+    "progressions": {
+      "title": "Progressions",
+      "type": "object",
+      "description": "Progressions are what allow the sound effects to harmonize with a loop. You can use the same progression on any number of loops.",
+      "additionalProperties": {
+        "title": "Progression",
+        "type": "array",
+        "description": "Each step in the progression is one item in this array.",
+        "items": {
+          "title": "Progression Step",
+          "type": "array",
+          "items": [
+            {
+              "title": "Drop Group Reference",
+              "decription": "Reference to a drop_groups entry",
+              "type": "string"
+            },
+            {
+              "title": "Move Group Reference",
+              "decription": "Reference to a move_groups entry",
+              "type": "string"
+            },
+            {
+              "title": "Clear Group Reference",
+              "decription": "Reference to a clear_groups entry",
+              "type": "string"
+            },
+            {
+              "title": "Combo Group Reference",
+              "decription": "Reference to a combo_groups entry",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+
+    "loops": {
+      "title": "Loops",
+      "description": "A composer can create a series of sections comprised of loops. Each loop has associated sound effects, which are organized into progressions to aid in harmonization. Loops that start a section (start, middle, outro, end) must be named correctly, but any other names are up to you.",
+      "type": "object",
+      "properties": {
+        "start": { "$ref": "#/definitions/loop" },
+        "middle": { "$ref": "#/definitions/loop" },
+        "outro": { "$ref": "#/definitions/loop" },
+        "end": { "$ref": "#/definitions/end" }
+      },
+      "additionalProperties": { "$ref": "#/definitions/loop" },
+      "minProperties": 2,
+      "required": [
+        "start",
+        "middle",
+        "outro",
+        "end"
+      ]
+    },
+
+    "gain": {
+      "title": "Gain Adjustment",
+      "description": "Sometimes you want to adjust your mix after you’ve exported all your sound effects, and you don’t want to have to go back and do it again.",
+      "type": "object",
+      "properties": {
+        "master": { "$ref": "#/definitions/gainadjust" },
+        "drop": { "$ref": "#/definitions/gainadjust" },
+        "move": { "$ref": "#/definitions/gainadjust" },
+        "clear": { "$ref": "#/definitions/gainadjust" },
+        "combo": { "$ref": "#/definitions/gainadjust" },
+        "loop": { "$ref": "#/definitions/gainadjust" }
+      },
+      "required": [
+        "master",
+        "drop",
+        "move",
+        "clear",
+        "combo",
+        "loop"
+      ]
+    },
+
+    "info": {
+      "title": "Song Info",
+      "type": "object",
+      "description": "Finally, there’s a place to put the title of the song and the artist name. Simple enough!",
+      "properties": {
+        "title": {
+          "title": "Title",
+          "description": "Name of the dynamic music package",
+          "examples": [ "tessellation" ],
+          "type": "string"
+        },
+        "author": {
+          "title": "Author",
+          "description": "Your name, etc",
+          "examples": [ "davemakes" ],
+          "type": "string"
+        },
+        "mode": {
+          "title": "Game Mode Option",
+          "description": "To mark a song so that it is included in the selection of Rush mode music, set mode to `rush`",
+          "type": "string",
+          "enum": [ "rush" ]
+        }
+      },
+      "required": [
+        "title",
+        "author"
+      ]
+    }
+  },
+
+  "required": [
+    "drop_groups",
+    "move_groups",
+    "clear_groups",
+    "combo_groups",
+    "progressions",
+    "loops",
+    "info"
+  ],
+  
+  "definitions": {
+
+    "clipfile": {
+      "title": "Sound File",
+      "description": "An audio file in the .ogg format",
+      "type": "string",
+      "pattern": "^.*\\.ogg$"
+    },
+
+    "gainadjust": {
+      "title": "Gain Adjustment",
+      "examples": [1.0,0.75,0.5,1.1],
+      "default": 1.0,
+      "type": "number"
+    },
+
+    "loop": {
+      "title": "Loop",
+      "description": "Each loop has associated sound effects, which are organized into progressions to aid in harmonization.",
+      "type": "object",
+      "properties": {
+        "audio": { "$ref": "#/definitions/clipfile" },
+        "bpm": {
+          "description": "The bpm of this file. Different loops can have different speeds if you wanna get wild",
+          "type": "integer"
+        },
+        "length": {
+          "description": "The length of the loop in beats. One measure in 4/4 time would have a length of 4. This is NOT in measures, because there is no assumption for time signature.",
+          "type": "integer"
+        },
+        "progression": {
+          "description": "The associated sfx progression from the progressions section.",
+          "type": "string"
+        },
+        "next": {
+          "description": "The name of the next loop",
+          "type": "string"
+        }
+      },
+      "required": [
+        "audio",
+        "bpm",
+        "length",
+        "progression",
+        "next"
+      ]
+    },
+
+    "end": {
+      "title": "End of Loops",
+      "description": "The final section, end, is a short finisher when the game ends.",
+      "type": "object",
+      "properties": {
+        "audio": { "$ref": "#/definitions/clipfile" }
+      },
+      "required": [
+        "audio"
+      ]
+    }
+  }
+}

@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/main.css?version=20220906">
+
+  <title>Mixolumia - Making Music</title>
+  <meta name="keywords" content="Mixolumia, game, puzzle, arcade">
+  <meta name="description" content="Mixolumia is an entrancing musical puzzle game.">
+  <meta name="author" content="davemakes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:url" content="http://www.mixolumia.com">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mixolumia">
+  <meta property="og:description" content="Mixolumia is an entrancing musical puzzle game.">
+  <meta property="og:image" content="https://www.mixolumia.com/images/twitter-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@davemakes">
+  <meta name="twitter:title" content="Mixolumia">
+  <meta name="twitter:description" content="Entrancing musical puzzle game.">
+  <meta name="twitter:image" content="https://www.mixolumia.com/images/twitter-card.png">
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Mixolumia" /></head>
+<body class="light-bg | dark-text"><header class="site-header" role="banner"><a class="site-title" rel="author" href="/">Mixolumia</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="https://davemakes.itch.io/mixolumia" target="_blank">Itch.io</a>
+          <a class="page-link" href="https://store.steampowered.com/app/1414020/Mixolumia/" target="_blank">Steam</a>
+          <a class="page-link" href="https://moonglass.games/l/?s=mixolumia&l=eshop" target="_blank">Switch</a>
+          <a class="page-link" href="https://davemakes.bandcamp.com/album/mixolumia-ep" target="_blank">OST</a><a class="page-link" href="/community/">Community</a><a class="page-link" href="/colors/">Colors</a><a class="page-link" href="/soundpacks/">Soundpacks</a><a class="page-link" href="/makingmusic/">Making Music</a></div>
+      </nav></header>
+<main class="page-content" aria-label="Content">
+	  	<div class="wrapper">
+	  		<article class="post">
+
+  <div class="post-content">
+    <h1 id="making-music">Making Music</h1>
+
+<div class="side-nav light-bg">
+  <h3 id="contents">// Contents</h3>
+
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#soundpack-structure">Sections and Structure</a></li>
+    <li><a href="#loops">Loops</a></li>
+    <li><a href="#progressions">Progressions</a></li>
+    <li><a href="#drop-groups">Drop Groups</a></li>
+    <li><a href="#move-groups">Move Groups</a></li>
+    <li><a href="#clear-groups">Clear Groups</a></li>
+    <li><a href="#combo-groups">Combo Groups</a></li>
+    <li><a href="#gain-adjustment">Gain Adjustment</a></li>
+    <li><a href="#soundpack-info">Soundpack Info</a></li>
+    <li><a href="#cover-art">Cover Art</a></li>
+    <li><a href="#file-location">File Location</a></li>
+    <li><a href="#json">JSON</a></li>
+    <li><a href="#ogg-vorbis">Ogg Vorbis</a></li>
+    <li><a href="#sound-test">Sound Test</a></li>
+    <li><a href="#rush-mode">Rush Mode</a></li>
+    <li><a href="#copyrighted-samples">Copyrighted Samples</a></li>
+    <li><a href="#distributing-soundpacks">Distributing Soundpacks</a></li>
+    <li><a href="#future-plans">Future Plans</a></li>
+  </ul>
+
+</div>
+
+<p><a name="overview" class="top"> </a></p>
+<h3 id="-overview">// Overview</h3>
+<p>The music in Mixolumia changes as the player progresses through a game, and the game’s sound effects harmonize with the music being played.</p>
+
+<p>Soundpacks are loaded from external files, which means anyone can make and distribute or sell their own soundpacks for Mixolumia.</p>
+
+<p>In a nutshell, a soundpack is a folder with one <strong>JSON</strong> file and a bunch of <strong>Ogg Vorbis</strong> audio files. A composer can create a series of <strong>sections</strong> comprised of <strong>loops</strong>. Each loop has associated sound effects, which are organized into <strong>progressions</strong> to aid in harmonization.</p>
+
+<p>There are four important sections to make the progression trick work: The <strong>start</strong>, <strong>middle</strong>, <strong>outro</strong>, and <strong>end</strong>. When the player hits certain numbers of clears, the next section is queued to play after the currently playing loop. The final section, end, is a short finisher when the game ends.</p>
+
+<p><br /></p>
+
+<p><a name="soundpack-structure" class="top"> </a></p>
+<h3 id="-sections-and-soundpack-structure">// Sections and Soundpack Structure</h3>
+
+<p><img src="/images/song-structure.png" alt="Soundpack structure diagram" /></p>
+
+<p>Here’s an example of how a soundpack could be structured. Each block in this example diagram represents a <strong>loop</strong>. Loops that start a <strong>section</strong> (start, middle, outro, end) must be named correctly, but any other names are up to you.</p>
+
+<p>You can use fewer or more loops depending on how you want to structure the soundpack, and loops can link to any other loop in the progression. The diagram above is just a few examples of how a soundpack might flow.</p>
+
+<blockquote>
+  <p>Note: I am considering allowing for some randomization if you link a loop to multiple other loops to make songs more unpredictable.</p>
+</blockquote>
+
+<p>The <strong>end</strong> section may interrupt the currently playing loop at any time because the player could win before hitting the outro during some game modes. The music should be designed to work, even if the transition is abrupt.</p>
+
+<p>When composing your soundpack, keep in mind that the game will be moving faster as the player progresses, so in a typical Marathon game, the outro will likely last a shorter amount of time than the start or middle sections.</p>
+
+<p><br /></p>
+
+<p><a name="loops" class="top"> </a></p>
+<h3 id="-loops">// Loops</h3>
+<p>Loops are comprised of the following:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"audio"</code> - an audio file in the .ogg format</li>
+  <li><code class="language-plaintext highlighter-rouge">"bpm"</code> - the bpm of this file. Different loops can have different speeds if you wanna get wild</li>
+  <li><code class="language-plaintext highlighter-rouge">"length"</code> - the length of the loop in beats. One measure in 4/4 time would have a length of 4. This is NOT in measures, because there is no assumption for time signature</li>
+  <li><code class="language-plaintext highlighter-rouge">"progression"</code> - the associated sfx progression</li>
+  <li><code class="language-plaintext highlighter-rouge">"next"</code> - the name of the next loop</li>
+</ul>
+
+<p>The bpm and length of each loop is used so that the loop audio files can contain reverb tails that overlap the next loop instead of abruptly switching.</p>
+
+<p><img src="/images/loop-overlap.png" alt="Diagram showing loops overlapping" /></p>
+
+<p>An example loop might look like:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="nl">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intro.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"bpm"</span><span class="p">:</span><span class="w"> </span><span class="mi">140</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"progression"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prog_0"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loop_0"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>The end loop doesn’t require any information except for the audio file. It might look like:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="nl">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end.ogg"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a name="progressions" class="top"> </a></p>
+<h3 id="-progressions">// Progressions</h3>
+<p>Progressions are what allow the sound effects to harmonize with a loop. You can use the same progression on any number of loops.</p>
+
+<p>Let’s take a simplified example. Let’s say a loop is just a C major chord. You can define a progression that is just C.</p>
+
+<p>Let’s say a loop is 1 measure of C, then 1 measure of F. Your progression would be C/F because a progression divides the time for each step equally.</p>
+
+<p>What if your loop is unequal? Say we have 3 beats in C, and 1 beat in F. Your progression could be C/C/C/F. The length of the progression is not defined, so if this was applied to a 4 measure loop instead of a 1 measure loop, it would mean 3 measures of C and 1 measure of F.</p>
+
+<p><img src="/images/progression-stretch.png" alt="Diagram of progressions" /></p>
+
+<p>Progressions are a little more than that in practice because instead of just “C” you actually define a <strong>drop group</strong>, <strong>move group</strong>, <strong>clear group</strong>, and <strong>combo group</strong> for each step. So an example progression might look like:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"progression_0"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+	</span><span class="p">[</span><span class="s2">"drop_0"</span><span class="p">,</span><span class="w"> </span><span class="s2">"move_C"</span><span class="p">,</span><span class="w"> </span><span class="s2">"clear_C"</span><span class="p">,</span><span class="w"> </span><span class="s2">"combo_0"</span><span class="p">],</span><span class="w">
+	</span><span class="p">[</span><span class="s2">"drop_0"</span><span class="p">,</span><span class="w"> </span><span class="s2">"move_C"</span><span class="p">,</span><span class="w"> </span><span class="s2">"clear_C_alt"</span><span class="p">,</span><span class="w"> </span><span class="s2">"combo_0"</span><span class="p">],</span><span class="w">
+	</span><span class="p">[</span><span class="s2">"drop_1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"move_F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"clear_F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"combo_0"</span><span class="p">],</span><span class="w">
+	</span><span class="p">[</span><span class="s2">"drop_1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"move_A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"clear_A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"combo_0"</span><span class="p">]</span><span class="w">
+</span><span class="p">]</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a name="drop-groups" class="top"> </a></p>
+<h3 id="-drop-groups">// Drop Groups</h3>
+<p>This is the sound that plays when the player’s tetrad lands. I used a deep bass thud in <em>Tessellation</em> and a snap sound in <em>Minimum</em>, but it’s open to your musical inspiration.</p>
+
+<p>You can only specify one drop sound per progression.</p>
+
+<p>The JSON for drop groups looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"drop_0"</span><span class="p">:</span><span class="w"> </span><span class="s2">"drop.ogg"</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a name="move-groups" class="top"> </a></p>
+<h3 id="-move-groups">// Move Groups</h3>
+<p>Move groups define the sounds that will play when the player twists or moves the tetrad.</p>
+
+<p>They work kind of like a mini progression within themselves, so you could define a sort of melody or arpeggio as the player plays. You can make this as simple or as complex as you like.</p>
+
+<p>The movement sounds won’t necessarily play in the order you write them, but will play depending on where in the progression the player happens to trigger a sound while playing. The way this happens is through magic and nonsense and no one should attempt to understand it.</p>
+
+<p><img src="/images/move-groups.png" alt="Move groups diagram" /></p>
+
+<p>The JSON for move groups looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"move_C"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+	</span><span class="s2">"move_C_0.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_2.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_1.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_3.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_1.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_3.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_2.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_4.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_0.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_2.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_1.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_3.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_1.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_3.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_2.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"move_C_5.ogg"</span><span class="p">,</span><span class="w">
+</span><span class="p">]</span></code></pre></figure>
+
+<p>As you can see, you can reuse sounds as much as you need to, even across groups. The game will only load each audio file into memory once, so don’t worry about that.</p>
+
+<p><br /></p>
+
+<p><a name="clear-groups" class="top"> </a></p>
+<h3 id="-clear-groups">// Clear Groups</h3>
+<p>Clear groups define the sounds that will play when the player clears blocks.</p>
+
+<p>Because we want to give feedback when the player clears a lot of blocks, or if they have a really strong combo going, clear groups are made up of <strong>exactly 3 sound files.</strong> Think of them as a small clear, medium clear, and big clear. The JSON for a clear group looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"clear_C"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+	</span><span class="s2">"clear_C_0.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"clear_C_1.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"clear_C_2.ogg"</span><span class="w">
+</span><span class="p">]</span></code></pre></figure>
+
+<p>I’ve been adding notes to make fuller chords for bigger clear sounds, but how you want to use it is up to you. You could use short riffs, or nontonal sound effects, or anything you dream up.</p>
+
+<p><br /></p>
+
+<p><a name="combo-groups" class="top"> </a></p>
+<h3 id="-combo-groups">// Combo Groups</h3>
+<p>Combo groups define the sounds that will play when the player starts a chain reaction and gets multiple sets of clears with one drop. When the board has finally settled, a visual effect and sound will be triggered.</p>
+
+<p>Like clear groups, combo groups are made up of <strong>exactly 3 sound files,</strong> for small, medium, and big combos. The JSON for a combo group looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"combo_0"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+	</span><span class="s2">"combo_0_0.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"combo_0_1.ogg"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"combo_0_2.ogg"</span><span class="w">
+</span><span class="p">]</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a name="gain-adjustment" class="top"> </a></p>
+<h3 id="-gain-adjustment">// Gain Adjustment</h3>
+<p>Sometimes you want to adjust your mix after you’ve exported all your sound effects, and you don’t want to have to go back and do it again. The good news is that you can adjust the <strong>gain</strong> for sounds in the JSON in a section that looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"gain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="nl">"master"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"drop"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"move"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"clear"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"combo"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"loop"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>This allows you to lower the volume of sets of sounds, or of the track as a whole, to easily adjust the mix of your soundpack and keep its levels in line with other soundpacks in Mixolumia.</p>
+
+<p>Keep in mind that this number adjusts the gain of sounds linearly. Human perception of sounds is not linear, so a change from 0.1 to 0.2 is going to sound more drastic than a change from 0.9 to 1.0. It’s weird, I know! Just keep it in mind as you adjust, and consider using a percentage to decibel conversion tool online if you need to be precise.</p>
+
+<p><br /></p>
+
+<p><a name="soundpack-info" class="top"> </a></p>
+<h3 id="-soundpack-info">// Soundpack Info</h3>
+<p>Finally, there’s a place to put the title of the soundpack and the author’s name. This defines exactly what is displayed in the track selection screen. Simple enough!</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Track Title"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Name"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>Rush mode tracks have an extra field in the soundpack info section. See the <a href="#rush-mode">Rush mode section</a> in this doc to learn more.</p>
+
+<p><br /></p>
+
+<p><a name="cover-art" class="top"> </a></p>
+<h3 id="-cover-art">// Cover Art</h3>
+
+<p><img src="/images/soundpack-cover-art.png" alt="Soundpack cover art example" /></p>
+
+<p>Cover art for your soundpack is a 96x96 pixel square image called <strong>cover.png</strong> in the soundpack folder. I suggest using only black and white (1-bit), no grays, or you may see unexpected results in-game. The game will automatically display the album art in the player’s currently selected palette. If the user selects a “light” palette, cover art will be inverted automatically. If you don’t provide a cover, the game will show some default art.</p>
+
+<p><br /></p>
+
+<p><a name="file-location" class="top"> </a></p>
+<h3 id="-file-location">// File Location</h3>
+<p>There are soundpacks included in the game’s install directory, and it’s fine to look at those for reference, but it’s best to put user-created soundpacks in the <strong>working directory</strong> to avoid bugs, especially if you’re using zip files.</p>
+
+<p>The correct soundpack directory on Windows is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%LOCALAPPDATA%/Mixolumia/data/music/
+</code></pre></div></div>
+
+<p>On Mac it’s:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/Library/Application Support/com.davemakes.mixolumia/data/music
+</code></pre></div></div>
+
+<p><strong>You may need to create this directory if it doesn’t already exist.</strong></p>
+
+<p>If you add a folder with a custom soundpack in the soundpack directory, it will be added to the sound selection screen. Mixolumia will load custom soundpacks when the game starts, and you will be able to use the left and right arrow buttons to choose a soundpack.</p>
+
+<p><br /></p>
+
+<p><a name="json" class="top"> </a></p>
+<h3 id="-json">// JSON</h3>
+<p>It’s super important to format the JSON right and use {} or [], commas in the right places, and quotation marks correctly. JSON is a pain to read and write but it works really well on the programming side.</p>
+
+<p>I recommend taking a look at the included soundpack to get a feel for how it’s structured. There’s a <a href="https://jsoneditoronline.org/" target="_blank">handy visual JSON editor online</a> that will help you avoid errors, so consider giving that a shot when creating your soundpack.</p>
+
+<p>If your soundpack is breaking in some way, try pasting your JSON into a website that will check it for syntax errors. A missing comma can throw the whole thing off.</p>
+
+<p>You can <a href="/examples/data.json" target="_blank">download an example JSON file</a> to see how things might work or dig into existing soundpacks. If you’re an advanced user, the community has put together a <a href="/examples/music-schema.json" target="_blank">JSON schema</a> to help.</p>
+
+<p><br /></p>
+
+<p><a name="ogg-vorbis" class="top"> </a></p>
+<h3 id="-ogg-vorbis">// Ogg Vorbis</h3>
+<p>Ogg Vorbis (.ogg) files are compressed audio files like MP3, but the format is open source. Mixolumia uses this format because it’s what Game Maker Studio 2 supports for streaming audio from outside the game executable.</p>
+
+<p>Your DAW likely doesn’t support exporting to Ogg Vorbis, but there’s a quick way to convert a bunch of WAV files quickly using the free program <a href="https://www.audacityteam.org/" target="_blank">Audacity</a>. Simply drag your WAV files into an Audacity project and they will be added as separate tracks. Choose <strong>File &gt; Export &gt; Export Multiple</strong> and set the <strong>Format</strong> to <strong>Ogg Vorbis Files</strong>. I set the quality to 3, which seems fine for my purposes, but if your ears are more attuned to audio compression than mine, feel free to experiment.</p>
+
+<p><br /></p>
+
+<p><a name="sound-test" class="top"> </a></p>
+<h3 id="-sound-test">// Sound Test</h3>
+<p>It can be difficult and time consuming to test soundpacks in Mixolumia, especially if you’re not an expert player. I highly suggest enabling <strong>sound test</strong> when building a track. All you have to do is add a line to the game settings file.</p>
+
+<p>The game settings file location on Windows is:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%LOCALAPPDATA%/Mixolumia/game_settings.ini
+</code></pre></div></div>
+
+<p>On Mac it should be:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/Library/Application Support/com.davemakes.mixolumia/game_settings.ini
+</code></pre></div></div>
+
+<p>Open that file and add the line:</p>
+
+<figure class="highlight"><pre><code class="language-ini" data-lang="ini"><span class="py">soundtest</span><span class="p">=</span><span class="s">1</span></code></pre></figure>
+
+<p>You can change this value to <code class="language-plaintext highlighter-rouge">0</code> and restart the game to disable sound test.</p>
+
+<p><img src="/images/sound-test.png" alt="Soundtest screenshot" /></p>
+
+<p>When sound test is enabled, you will see a readout along the left side showing you the name of the current loop, the loop that’s queued to play next, and the current drop/move/clear/combo groups. Along the top is a progress bar showing how long until the next loop will be played.</p>
+
+<p>Sound test also enables a few extra keyboard commands.</p>
+
+<ul>
+  <li><strong>Keys 1, 2, and 3:</strong> Play clear sounds</li>
+  <li><strong>Keys 3, 4, and 5:</strong> Play combo sounds</li>
+  <li><strong>Enter:</strong> Advances to the next section.</li>
+</ul>
+
+<p>If you press enter three times total, the you will reach the end section and the game will conclude.</p>
+
+<p><br /></p>
+
+<p><a name="rush-mode" class="top"> </a></p>
+<h3 id="-rush-mode">// Rush Mode</h3>
+<p>In Mixolumia, there is a game mode called Rush in which the player tries to score as many points as possible in two minutes. This creates a very different musical experience, which is why the Rush soundpack selection is different from other modes.</p>
+
+<p><img src="/images/rush-flow.png" alt="Rush mode structure diagram" /></p>
+
+<p>Rush soundpacks begin from the <strong>start</strong> section like any other soundpack in Mixolumia, but no other sections are ever triggered by gameplay, and are not required in your JSON file. Progression of a Rush track is based on time instead of clears, and should be designed to reach its climax at the 2 minute mark when the player runs out of time. Your soundpack structure will likely be much more linear than in other modes.</p>
+
+<p>To mark a soundpack so that it is included in the selection of Rush mode music, the soundpack info section of the JSON needs the line <code class="language-plaintext highlighter-rouge">"mode": "rush"</code> added to the info section.</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="nl">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Title"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Author Name"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rush"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a name="copyrighted-samples" class="top"> </a></p>
+<h3 id="-copyrighted-samples">// Copyrighted Samples</h3>
+<p>Just a quick note: Be wary of using copyrighted samples for sound effects outside of your loops. It’s a good idea to make sure you’ve transformed them enough that you aren’t doing anything to break the license by redistributing them since they’re essentially just sound files in a folder.</p>
+
+<p><br /></p>
+
+<p><a name="distributing-soundpacks" class="top"> </a></p>
+<h3 id="-distributing-soundpacks">// Distributing Soundpacks</h3>
+<p>So, you made a soundpack, and want other Mixolumia players to be able to play it! I would love to be able to pay folks for their work and include more soundpacks with the game, and if enough people buy Mixolumia, maybe that dream will come true (please tell your friends about Mixolumia).</p>
+
+<p>However, Mixolumia is set up so that anyone can make and distribute/sell their own soundpacks. Obviously please don’t bundle and redistribute the game itself, that would really hurt my ability to add cool features to Mixolumia and make more games in the future, but any Mixolumia soundpacks you create belong to you and you can do with them as you wish! Nothing would make me happier than seeing fans making money off their musical creations on <a href="http://www.itch.io" target="_blank">Itch.io</a> or elsewhere.</p>
+
+<p>As far as the technical side of things, you can distribute your soundpack as a folder, or you can bundle the files as a zip and the game will automatically extract it. The player just needs to drop your soundpack into the <code class="language-plaintext highlighter-rouge">data/music</code> directory and it will be available the next time they start the game.</p>
+
+<blockquote>
+  <p>Note: I would like for this process to be easier for players, and I’m working on it!</p>
+</blockquote>
+
+<p><br /></p>
+
+<p><a name="future-plans" class="top"> </a></p>
+<h3 id="-future-plans">// Future Plans</h3>
+<p>I would like to make a companion app to help generate the JSON files and test soundpacks, but that’s kind of a big investment, and I’m not sure if I’ll have the resources to get to it.</p>
+
+<p>I am open to feedback and ideas, so please let me know if you think of anything.</p>
+
+<p>Thanks!</p>
+
+  </div>
+
+</article>
+
+		</div>
+	</main><footer class="site-footer h-card dark-bg light-text">
+  <data class="u-url" href="/"></data>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1"><ul class="social-media-list"><li><a href="https://www.twitter.com/davemakes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">davemakes</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-2">
+      
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="no-bullet">
+          <li><a href="https://davemakes.itch.io/mixolumia" target="_blank">Itch.io</a></li>
+          <li><a href="https://store.steampowered.com/app/1414020/Mixolumia/" target="_blank">Steam</a></li>
+          <li><a href="https://moonglass.games/l/?s=mixolumia&l=eshop" target="_blank">Nintendo Switch</a></li>
+          <li><a href="https://davemakes.bandcamp.com/album/mixolumia-ep" target="_blank">OST</a></li><li><a href="/community/">Community</a></li><li><a href="/colors/">Colors</a></li><li><a href="/soundpacks/">Soundpacks</a></li><li><a href="/makingmusic/">Making Music</a></li><li><a href="/press">Press Kit</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+</footer>
+</body>
+</html>
